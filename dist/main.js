@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "c542e59f89e451b04800";
+/******/ 	var hotCurrentHash = "7f0aad3e88e39e691a47";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -12871,12 +12871,18 @@ jquery__WEBPACK_IMPORTED_MODULE_3___default()('document').ready(main());
 function main() {
   var socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()();
   console.log('hello');
-  socket.once('connect', function () {
-    console.log('client connected to server');
-  });
-  socket.on('welcome', function (data) {
-    console.log('connected');
-  }); // io.on('connection', () => {
+  console.log(socket);
+  socket.on('connect', function () {
+    console.log(socket.connected);
+  }); // socket.on('connection', socket => {
+  //     socket.once('connect', () => {
+  //         console.log('client connected to server');
+  //     })
+  //     socket.on('welcome', data => {
+  //         console.log('connected');
+  //     })
+  // })
+  // io.on('connection', () => {
   //     console.log('connected');
   //     server.emit('hello');
   //     server.on('welcome', res => {
@@ -12885,9 +12891,7 @@ function main() {
   // });
   // Log message to console
 
-  Object(_js_logger__WEBPACK_IMPORTED_MODULE_0__["default"])('A very warm welcome to Expack!');
-  var text = jquery__WEBPACK_IMPORTED_MODULE_3___default()('text');
-  text.val('hello'); // Needed for Hot Module Replacement
+  Object(_js_logger__WEBPACK_IMPORTED_MODULE_0__["default"])('A very warm welcome to Expack!'); // Needed for Hot Module Replacement
 
   if (typeof module.hot !== 'undefined') {
     module.hot.accept(); // eslint-disable-line no-undef  

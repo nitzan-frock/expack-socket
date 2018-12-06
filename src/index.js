@@ -8,8 +8,7 @@ $('document').ready(main());
 function main () {
     const socket = io();
     console.log('hello');
-
-    socket.emit('ping');
+    console.log(socket);
 
     socket.on('connect', () => {
         console.log(socket.connected);
