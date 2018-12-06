@@ -6,7 +6,7 @@ import $ from 'jquery';
 $('document').ready(main());
 
 function main () {
-    const socket = io('http://204.148.133.122"8080');
+    const socket = io();
     console.log('hello');
 
     socket.emit('ping');
