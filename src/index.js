@@ -6,16 +6,24 @@ import $ from 'jquery';
 $('document').ready(main());
 
 function main () {
-    const socket = io('http://localhost:8080');
+    const socket = io('http://204.148.133.122"8080');
     console.log('hello');
 
-    socket.once('connect', () => {
-        console.log('client connected to server');
+    socket.emit('ping');
+
+    socket.on('connect', () => {
+        console.log(socket.connected);
     })
 
-    socket.on('welcome', data => {
-        console.log('connected');
-    })
+    // socket.on('connection', socket => {
+    //     socket.once('connect', () => {
+    //         console.log('client connected to server');
+    //     })
+    
+    //     socket.on('welcome', data => {
+    //         console.log('connected');
+    //     })
+    // })
 
 
     // io.on('connection', () => {
@@ -28,9 +36,6 @@ function main () {
 
     // Log message to console
     logMessage('A very warm welcome to Expack!')
-
-    const text = $('text');
-    text.val('hello')
 
     // Needed for Hot Module Replacement
     if(typeof(module.hot) !== 'undefined') {

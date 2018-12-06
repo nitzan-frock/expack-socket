@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "7b0417cdaf7a810abd1a";
+/******/ 	var hotCurrentHash = "c542e59f89e451b04800";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -12869,7 +12869,7 @@ __webpack_require__.r(__webpack_exports__);
 jquery__WEBPACK_IMPORTED_MODULE_3___default()('document').ready(main());
 
 function main() {
-  var socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()('http://localhost:8080');
+  var socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()();
   console.log('hello');
   socket.once('connect', function () {
     console.log('client connected to server');

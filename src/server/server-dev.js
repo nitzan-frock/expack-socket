@@ -14,18 +14,6 @@ const app=express(),
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-console.log('\n\n\n\nTHIS IS THE SERVER\n\n\n');
-
-io.on('connection', client => {
-    console.log('new connection');
-
-    client.on('connect');
-
-    client.on('hello', () => {
-        client.emit('welcome', 'welcome to the club');
-    })
-})
-
 app.use(historyApiFallback({
     verbose: false
 }));
@@ -54,9 +42,21 @@ app.get('*', (req, res, next) => {
     })
 })
 
-const PORT=process.env.PORT||8080
+const PORT = process.env.PORT||8080
 
 app.listen(PORT, () => {
     console.log(`App listening to ${PORT}....`)
     console.log('Press Ctrl+C to quit.')
+})
+
+console.log('\n\n\n\nTHIS IS THE SERVER\n\n\n');
+
+io.on('connection', socket => {
+    console.log('new connection');
+
+    socket.on('connect');
+
+    socket.on('hello', () => {
+        socket.emit('welcome', 'welcome to the club');
+    })
 })
